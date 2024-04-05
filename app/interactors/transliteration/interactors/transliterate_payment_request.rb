@@ -6,17 +6,7 @@ module Transliteration
       delegate :payment_request_id, :field_name, :original_text, :source_locale, :target_locale, to: :context
 
       after do
-        # maybe use https://github.com/Jane-Terziev/dry_object_mapper to map active record object to dtos, instead of
-        # mapping the fields manually?
-        context.transliteration = Dtos::PaymentRequestTransliteration.new(
-          id: @transliteration.id,
-          payment_request_id: @transliteration.payment_request_id,
-          field_name: @transliteration.field_name,
-          original_text: @transliteration.original_text,
-          transliterated_text: @transliteration.transliterated_text,
-          source_locale: @transliteration.source_locale,
-          target_locale: @transliteration.target_locale
-        )
+        context.transliteration = DryObjectMapper::Mapper.call(@transliteration, Dtos::PaymentRequestTransliteration)
       end
 
       def call
