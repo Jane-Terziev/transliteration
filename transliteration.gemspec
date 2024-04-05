@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "interactor"
   spec.add_dependency "dry-struct"
   spec.add_dependency "dry-validation"
+  spec.add_dependency "dry_object_mapper"
   spec.add_development_dependency "rspec-rails", '~> 6.1.0'
   spec.add_development_dependency "factory_bot_rails"
 end

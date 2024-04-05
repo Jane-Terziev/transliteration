@@ -16,3 +16,4 @@ end
 gem 'twitter_cldr'
 gem "interactor", "~> 3.0"
 gem 'dry-struct'
+gem 'dry_object_mapper'
